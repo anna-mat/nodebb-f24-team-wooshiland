@@ -10,44 +10,62 @@ define('forum/header/unread', ['hooks'], function (hooks) {
 
 	unread.initUnreadTopics = function () {
 		const unreadTopics = app.user.unreadData;
-
+		// ChatGPT: used ChatGPT to understand SonarCloud issue and got information on how to debug.
 		function onNewPost(data) {
-			if (data && data.posts && data.posts.length && unreadTopics) {
-				const post = data.posts[0];
-				if (parseInt(post.uid, 10) === parseInt(app.user.uid, 10) ||
-					(!post.topic.isFollowing && post.categoryWatchState !== watchStates.watching)
-				) {
-					return;
-				}
-
-				const tid = post.topic.tid;
-				if (!unreadTopics[''][tid] || !unreadTopics.new[tid] ||
-					!unreadTopics.watched[tid] || !unreadTopics.unreplied[tid]) {
-					markTopicsUnread(tid);
-				}
-
-				if (!unreadTopics[''][tid]) {
-					increaseUnreadCount('');
-					unreadTopics[''][tid] = true;
-				}
-				const isNewTopic = post.isMain && parseInt(post.uid, 10) !== parseInt(app.user.uid, 10);
-				if (isNewTopic && !unreadTopics.new[tid]) {
-					increaseUnreadCount('new');
-					unreadTopics.new[tid] = true;
-				}
-				const isUnreplied = parseInt(post.topic.postcount, 10) <= 1;
-				if (isUnreplied && !unreadTopics.unreplied[tid]) {
-					increaseUnreadCount('unreplied');
-					unreadTopics.unreplied[tid] = true;
-				}
-
-				if (post.topic.isFollowing && !unreadTopics.watched[tid]) {
-					increaseUnreadCount('watched');
-					unreadTopics.watched[tid] = true;
-				}
+			if (!isValidPostData(data)) return;
+			const post = data.posts[0];
+			const tid = post.topic.tid;
+			if (shouldIgnorePost(post)) return;
+			forUnreadTopics(tid);
+			forNewTopic(post, tid);
+			forUnrepliedTopic(post, tid);
+			forReadTopic(post, tid);
+			// console.log('Anna Mathews');
+		}
+		function isValidPostData(data) {
+			return data && data.posts && data.posts.length && unreadTopics;
+		}
+		function shouldIgnorePost(post) {
+			const isOwnPost = parseInt(post.uid, 10) === parseInt(app.user.uid, 10);
+			const isNotFollowingAndNotWatching =
+				!post.topic.isFollowing && post.categoryWatchState !== watchStates.watching;
+			return isOwnPost || isNotFollowingAndNotWatching;
+		}
+		function forUnreadTopics(tid) {
+			if (
+				!unreadTopics[''][tid] ||
+				!unreadTopics.new[tid] ||
+				!unreadTopics.watched[tid] ||
+				!unreadTopics.unreplied[tid]
+			) {
+				markTopicsUnread(tid);
+			}
+			if (!unreadTopics[''][tid]) {
+				increaseUnreadCount('');
+				unreadTopics[''][tid] = true;
 			}
 		}
-
+		function forNewTopic(post, tid) {
+			const isNewTopic =
+				post.isMain && parseInt(post.uid, 10) !== parseInt(app.user.uid, 10);
+			if (isNewTopic && !unreadTopics.new[tid]) {
+				increaseUnreadCount('new');
+				unreadTopics.new[tid] = true;
+			}
+		}
+		function forUnrepliedTopic(post, tid) {
+			const isUnreplied = parseInt(post.topic.postcount, 10) <= 1;
+			if (isUnreplied && !unreadTopics.unreplied[tid]) {
+				increaseUnreadCount('unreplied');
+				unreadTopics.unreplied[tid] = true;
+			}
+		}
+		function forReadTopic(post, tid) {
+			if (post.topic.isFollowing && !unreadTopics.watched[tid]) {
+				increaseUnreadCount('watched');
+				unreadTopics.watched[tid] = true;
+			}
+		}
 		function increaseUnreadCount(filter) {
 			const unreadUrl = '/unread' + (filter ? '?filter=' + filter : '');
 			const newCount = 1 + parseInt($('a[href="' + config.relative_path + unreadUrl + '"].navigation-link i').attr('data-content'), 10);
