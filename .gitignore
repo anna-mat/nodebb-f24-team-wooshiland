@@ -7,6 +7,7 @@ config.json
 jsconfig.json
 public/src/nodebb.min.js
 !src/views/config.json
+!node_modules/nodebb-plugin-composer-default/
 public/css/*.css
 *.sublime-project
 *.sublime-workspace
