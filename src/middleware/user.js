@@ -36,6 +36,18 @@ const passportAuthenticateAsync = function (req, res) {
 	});
 };
 
+const showUsername = (userId, currentUser) => {
+    const isAdmin = currentUser && currentUser.isAdmin;  // Check if current user is an admin
+    
+    // If the post is anonymous and the current user is not an admin, show 'Anonymous User'
+    if (isAnonymous && !isAdmin) {
+        return 'Anonymous User';
+    }
+    
+    // Otherwise, show the real username
+    return user.getDisplayName(userId);
+};
+
 module.exports = function (middleware) {
 	async function authenticate(req, res) {
 		async function finishLogin(req, user) {
