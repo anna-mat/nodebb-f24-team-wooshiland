@@ -36,6 +36,7 @@ const passportAuthenticateAsync = function (req, res) {
 	});
 };
 
+
 module.exports = function (middleware) {
 	async function authenticate(req, res) {
 		async function finishLogin(req, user) {
