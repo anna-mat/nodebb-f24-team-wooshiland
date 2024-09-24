@@ -125,7 +125,7 @@ Themes.set = async (data) => {
 					'theme:src': '',
 					bootswatchSkin: '',
 				});
-				
+
 				await events.log({
 					type: 'theme-set',
 					uid: parseInt(data.uid, 10) || 0,
