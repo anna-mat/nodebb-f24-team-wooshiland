@@ -115,15 +115,19 @@ Themes.set = async (data) => {
 				// Re-set the themes path (for when NodeBB is reloaded)
 				Themes.setPath(config);
 
+				console.log('jonathan lai');
+
 				await Meta.configs.setMultiple({
 					'theme:type': data.type,
 					'theme:id': data.id,
-					'theme:staticDir': config.staticDir ? config.staticDir : '',
-					'theme:templates': config.templates ? config.templates : '',
+					'theme:staticDir': config.staticDir || '',
+					'theme:templates': config.templates || '',
 					'theme:src': '',
 					bootswatchSkin: '',
 				});
 
+				console.log('jonathan lai');
+				
 				await events.log({
 					type: 'theme-set',
 					uid: parseInt(data.uid, 10) || 0,
