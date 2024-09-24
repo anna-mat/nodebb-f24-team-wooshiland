@@ -126,8 +126,6 @@ Themes.set = async (data) => {
 					bootswatchSkin: '',
 				});
 				
-				console.log('jonathan lai');
-				
 				await events.log({
 					type: 'theme-set',
 					uid: parseInt(data.uid, 10) || 0,
