@@ -14,6 +14,8 @@ PostObject:
       description: A user identifier
     timestamp:
       type: number
+    anonymous:
+      type: string
     deleted:
       type: boolean
     upvotes:
@@ -105,6 +107,8 @@ PostObject:
           type: array
           items:
             $ref: ../../components/schemas/TagObject.yaml#/TagObject
+        anonymous:
+          type: string
       required:
         - uid
         - tid
