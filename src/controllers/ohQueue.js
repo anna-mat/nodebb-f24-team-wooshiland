@@ -1,13 +1,14 @@
-//Source: ChatGPT
+// Source: ChatGPT
+
 'use strict';
 
-const querystring = require('querystring');
+// const querystring = require('querystring');
 
-const helpers = require('./helpers');
+// const helpers = require('./helpers');
 
 const ohQueueController = module.exports;
 
-ohQueueController.render = async function (req, res, next) {
+ohQueueController.render = async function (req, res) {
 	// Simulate a queue rendering logic. You could replace this with actual queue data.
 	const data = {
 		title: 'OH Queue',
