@@ -37,6 +37,8 @@ _mounts.main = (app, middleware, controllers) => {
 	setupPageRoute(app, '/reset/:code?', [middleware.delayLoading], controllers.reset);
 	setupPageRoute(app, '/tos', [], controllers.termsOfUse);
 
+	setupPageRoute(app, '/oh-queue', [], controllers.ohQueue);
+
 	setupPageRoute(app, '/email/unsubscribe/:token', [], controllers.accounts.settings.unsubscribe);
 	app.post('/email/unsubscribe/:token', controllers.accounts.settings.unsubscribePost);
 
