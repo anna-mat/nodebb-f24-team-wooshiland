@@ -7,6 +7,9 @@ const express = require('express');
 
 const meta = require('../meta');
 const controllers = require('../controllers');
+
+const ohQueue = require('../controllers/ohQueue');
+
 const controllerHelpers = require('../controllers/helpers');
 const plugins = require('../plugins');
 
@@ -36,6 +39,8 @@ _mounts.main = (app, middleware, controllers) => {
 	setupPageRoute(app, '/search', [], controllers.search.search);
 	setupPageRoute(app, '/reset/:code?', [middleware.delayLoading], controllers.reset);
 	setupPageRoute(app, '/tos', [], controllers.termsOfUse);
+
+	setupPageRoute(app, '/oh-queue', [], ohQueue.get);
 
 	setupPageRoute(app, '/email/unsubscribe/:token', [], controllers.accounts.settings.unsubscribe);
 	app.post('/email/unsubscribe/:token', controllers.accounts.settings.unsubscribePost);

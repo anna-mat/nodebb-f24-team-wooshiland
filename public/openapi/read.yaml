@@ -328,3 +328,38 @@ paths:
     $ref: 'read/groups/slug/members.yaml'
   /api/outgoing:
     $ref: 'read/outgoing.yaml'
+
+  /api/oh-queue:
+    $ref: 'read/oh-queue.yaml'
+
+
+
+  # /api/oh-queue:
+  #   get:
+  #     tags:
+  #       - oh-queue
+  #     summary: Welcome to the Office Hours Queue page
+  #     description: This route serves a welcome message to the OH queue page.
+  #     responses:
+  #       "200":
+  #         description: A welcome message is presented
+  #         content:
+  #           application/json:
+  #             schema:
+  #               allOf:
+  #                 - type: object
+  #                   # required:
+  #                   #   - message
+  #                   # properties:
+  #                   #   message: 
+  #                   #     type: string
+  #                   #     description: Welcome message for the OH queue page
+  #                   #     example: "Welcome to the Office Hours Queue page!"
+
+
+
+
+
+
+
+
