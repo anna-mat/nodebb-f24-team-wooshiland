@@ -92,6 +92,7 @@ describe('Controllers', () => {
 			{ it: 'should load users page', url: `/users` },
 			{ it: 'should load users page section', url: `/users?section=online` },
 			{ it: 'should load groups page', url: `/groups` },
+			{ it: 'should load OH Queue page', url: `/oh-queue` },
 			{ it: 'should get recent posts', url: `/api/recent/posts/month` },
 			{ it: 'should get post data', url: `/api/v3/posts/${pid}` },
 			{ it: 'should get topic data', url: `/api/v3/topics/${tid}` },
