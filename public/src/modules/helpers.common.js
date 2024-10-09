@@ -25,6 +25,7 @@ module.exports = function (utils, Benchpress, relative_path) {
 		userAgentIcons,
 		buildAvatar,
 		increment,
+		anonTrue,
 		generateWroteReplied,
 		generateRepliedTo,
 		generateWrote,
@@ -316,6 +317,12 @@ module.exports = function (utils, Benchpress, relative_path) {
 		}
 		output += `<span${attr2String(attributes)} component="${component || 'avatar/icon'}" style="${styles.join(' ')} background-color: ${userObj['icon:bgColor']}">${userObj['icon:text']}</span>`;
 		return output;
+	}
+
+	// this help function is used inside node_modules/nodebb-theme-harmony/templates/partials/topic/post.tpl
+	// to check whether to indicate objects depending on the anonymous data field value
+	function anonTrue(anonymousVal) {
+		return anonymousVal === 'true';
 	}
 
 	function increment(value, inc) {

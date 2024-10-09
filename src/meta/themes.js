@@ -115,7 +115,7 @@ Themes.set = async (data) => {
 				// Re-set the themes path (for when NodeBB is reloaded)
 				Themes.setPath(config);
 
-				console.log('jonathan lai');
+				// console.log('jonathan lai');
 
 				await Meta.configs.setMultiple({
 					'theme:type': data.type,

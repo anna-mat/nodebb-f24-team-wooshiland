@@ -1,4 +1,3 @@
-
 'use strict';
 
 const validator = require('validator');
@@ -52,7 +51,7 @@ module.exports = function (Posts) {
 			post.isMainPost = post.topic && post.pid === post.topic.mainPid;
 			post.deleted = post.deleted === 1;
 			post.timestampISO = utils.toISOString(post.timestamp);
-			post.anonymous = post.anonymous ? post.anonymous : 'false'; // checks if anonymous is true if not then false
+			post.anonymous = post.anonymous ? post.anonymous : 'false'; // makes sure anonymous is a required field for every post, false if anonymous field is undefined
 		});
 
 		posts = posts.filter(post => tidToTopic[post.tid]);

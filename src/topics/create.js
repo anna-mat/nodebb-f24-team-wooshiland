@@ -30,7 +30,6 @@ module.exports = function (Topics) {
 			title: data.title,
 			slug: `${tid}/${slugify(data.title) || 'topic'}`,
 			timestamp: timestamp,
-			// anonymous: data.anonPosts ? data.anonPosts : false,
 			lastposttime: 0,
 			postcount: 0,
 			viewcount: 0,
@@ -124,9 +123,9 @@ module.exports = function (Topics) {
 		postData.tid = tid;
 		postData.ip = data.req ? data.req.ip : null;
 		postData.isMain = true;
-		// postData.anonymous = data.anonPosts ? data.anonPosts : false;
 		postData = await posts.create(postData);
 		postData = await onNewPost(postData, data);
+
 
 		const [settings, topics] = await Promise.all([
 			user.getSettings(uid),
@@ -233,7 +232,7 @@ module.exports = function (Topics) {
 			topicInfo,
 		] = await Promise.all([
 			posts.getUserInfoForPosts([postData.uid], uid),
-			Topics.getTopicFields(tid, ['tid', 'uid', 'title', 'slug', 'cid', 'postcount', 'mainPid', 'scheduled', 'tags']), // add anonymous field
+			Topics.getTopicFields(tid, ['tid', 'uid', 'title', 'slug', 'cid', 'postcount', 'mainPid', 'scheduled', 'tags']),
 			Topics.addParentPosts([postData]),
 			Topics.syncBacklinks(postData),
 			posts.parsePost(postData),
