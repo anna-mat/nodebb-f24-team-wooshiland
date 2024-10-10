@@ -24,7 +24,7 @@ Posting as an Anonymous User
 
 OH Queue
 1. Navigate to the left menu bar
-2. Click the "helping Hands" icon to go to the OH Queue Page
+2. Click the "Helping Hands" icon to go to the OH Queue Page
 3. If the page does not appear intially or is not interactive, please refresh
 4. Click the blue "Join Queue" button - you should see yourself added to the queue and the number of people in the queue count should increase.
 5. Click the red "Leave Queue" button - you should see yourself removed from the queue and the number of people in the queue count should decrease.
