@@ -24,19 +24,19 @@ Posting as an Anonymous User
 
 OH Queue
 1. Navigate to the left menu bar
-2. If the page does not appear intially, please refresh.
-3. Click the "helping Hands" icon to go to the OH Queue Page
+2. Click the "helping Hands" icon to go to the OH Queue Page
+3. If the page does not appear intially or is not interactive, please refresh
 4. Click the blue "Join Queue" button - you should see yourself added to the queue and the number of people in the queue count should increase.
 5. Click the red "Leave Queue" button - you should see yourself removed from the queue and the number of people in the queue count should decrease.
 
 Automated Tests
-Testing for OH Queue Controller and Page Route - test/controllers.js
+Testing for OH Queue Controller and Page Route - test/controllers.js (line 95)
 - The main changes have been made in the front end repository, the backend test is used to ensure the page loaded properly.
 
-Testing for User Viewing Permissions - test/posts.js
+Testing for User Viewing Permissions - test/posts.js (lines 705-749)
 - In this test, an anonymous post is created, as well as a sample admin user and a sample regular user. This test checks that for the admin user, when they view the anonymous post, they should see the username. In addition, the test checks that when the regular user sees the post, they should only see the username as "Anonymous User".
 
-Testing for Anonymous Data Fields - test/posts.js
+Testing for Anonymous Data Fields - test/posts.js (line 699)
 - the backend test is used to ensure that the anonymous data field exists.
 
 
