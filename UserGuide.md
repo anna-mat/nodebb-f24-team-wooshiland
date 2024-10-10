@@ -19,7 +19,7 @@ Posting as an Anonymous User
 1. Go to the forum you want to post in
 2. Click the New Topic Button
 3. Add the post (topic title, post content)
-4. Click the "Post Anonymously" Button and ensure it is on (button is gray and shows the text "Posting Anonymously")
+4. Click the "Post Anonymously" Button and ensure it is on (button is gray)
 5. Submit the post
 
 OH Queue
