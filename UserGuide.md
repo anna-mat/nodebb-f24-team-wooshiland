@@ -6,10 +6,11 @@ In this sprint, we developed two new features for NodeBB. First, we created the 
 
 Installation
 
-Have NodeBB repository and the Team Wooshiland frontend repository downloaded on your local machine and running on your local host port.
+Have Team Wooshiland repository and the Team Wooshiland frontend repository downloaded on your local machine and running on your local host port.
 See instructions here:
+Team Wooshiland Repository: https://github.com/CMU-313/nodebb-f24-team-wooshiland
 Installing NodeBB locally: https://cmu-313.github.io/projects/P1/1_checkpoint/#getting-started
-Team Wooshiland Front-end repository: 
+Team Wooshiland Front-end Repository: https://github.com/CMU-313/nodebb-frontend-f24-team-wooshiland
 Setting up front-end repository: https://docs.google.com/document/d/1HCb6FL6noy3CYv2HG1Ea3ZHHN1uLghwcArk_c2TSrzg/edit?usp=sharing
 
 Features Front-end Testing Step-by-Step
