@@ -11,7 +11,7 @@ const map = {
 	'waterdrop-low.mp3': 'Default | Water drop (low)',
 };
 
-console.log('Sophie Feng');
+// console.log('Sophie Feng');
 function soundSettings(cb) {
 	const keys = ['chat-incoming', 'chat-outgoing', 'notification'];
 
