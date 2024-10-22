@@ -36,16 +36,6 @@ const passportAuthenticateAsync = function (req, res) {
 	});
 };
 
-// permisssions for admin to see username on anonymous posts
-// const showUsername = async (userId, currentUser) => {
-// const isAdmin = await user.isAdministrator(currentUser.uid);
-
-// if (isAnonymous && !isAdmin) {
-// return 'Anonymous User';
-// }
-
-// return user.getDisplayName(userId);
-// };
 
 module.exports = function (middleware) {
 	async function authenticate(req, res) {

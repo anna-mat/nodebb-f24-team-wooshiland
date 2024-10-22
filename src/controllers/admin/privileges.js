@@ -36,7 +36,6 @@ privilegesController.get = async function (req, res) {
 			}
 		}
 	});
-
 	if (!selectedCategory) {
 		selectedCategory = await categories.getCategoryFields(cid, ['cid', 'name', 'icon', 'bgColor', 'color']);
 	}
