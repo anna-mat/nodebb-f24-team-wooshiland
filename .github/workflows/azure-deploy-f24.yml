@@ -19,7 +19,7 @@ jobs:
       ./.github/workflows/test.yaml
 
   build-and-deploy:
-    if: github.repository == 'cmu-313/nodebb-f24-team-wooshiland-f24'
+    if: github.repository == 'cmu-313/nodebb-f24-team-wooshiland'
     needs: lint-and-test
 
     runs-on: ubuntu-latest
