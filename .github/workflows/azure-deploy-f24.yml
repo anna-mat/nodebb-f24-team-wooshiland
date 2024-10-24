@@ -47,6 +47,7 @@ jobs:
       - name: Incorporate the frontend templates
         run: |
           npm install
+          ./nodebb build
           
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
